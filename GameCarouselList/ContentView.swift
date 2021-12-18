@@ -16,9 +16,28 @@ struct ContentView: View {
 
 
 struct Home : View {
+    
+    @State var search = ""
+    @State var index = 0
+    @State var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            
+            LazyVStack {
+                HStack {
+                    Text("Game Store")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                        .padding(.horizontal)
+                    TextField("Search", text: self.$search)
+                        .padding(.vertical,10)
+                        .padding(.horizontal)
+                        .background(Color.black.opacity(0.07))
+                }
+                .padding(.vertical)
+            }
         }
     }
 }
